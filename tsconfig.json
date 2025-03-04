@@ -1,16 +1,24 @@
 {
   "compilerOptions": {
-    "jsx": "preserve",
+    "jsx": "react",
     "target": "ESNext",
-    "module": "commonjs",
-    "allowJs": true,
-    "skipLibCheck": true,
+    "module": "CommonJS",
+    "lib": ["dom", "ESNext"],
+    "experimentalDecorators": true,
+    "composite": true,
+    "declaration": true,
+    "allowJs": false,
     "esModuleInterop": true,
     "noImplicitAny": true,
     "sourceMap": true,
+    "strict": true,
     "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "outDir": "dist",
     "moduleResolution": "node",
     "resolveJsonModule": true
-  }
+  },
+  "include": ["src/**/*"]
 }
