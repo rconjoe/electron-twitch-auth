@@ -3,7 +3,10 @@
     "jsx": "react",
     "target": "ESNext",
     "module": "CommonJS",
-    "lib": ["dom", "ESNext"],
+    "lib": [
+      "dom",
+      "ESNext"
+    ],
     "experimentalDecorators": true,
     "composite": true,
     "declaration": true,
@@ -14,11 +17,16 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
     "outDir": "dist",
     "moduleResolution": "node",
     "resolveJsonModule": true
   },
-  "include": ["src/**/*"]
+  "include": [
+    "src/**/*",
+    "./src/secrets.json"
+  ]
 }
