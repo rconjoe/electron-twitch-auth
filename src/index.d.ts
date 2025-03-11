@@ -10,6 +10,17 @@ interface Versions {
   electron: () => string;
 }
 
+interface TwitchAuth {
+  requestAuth: () => void;
+  onAuthResult: (callback: (data: {
+    access_token: string;
+    expires_in?: number;
+    scope?: string[];
+    token_type?: string;
+  }) => void) => () => void;
+}
+
 declare interface Window {
   versions: Versions
+  twitchAuth: TwitchAuth
 }
