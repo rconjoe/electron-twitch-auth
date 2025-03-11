@@ -1,5 +1,6 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain, IpcMainEvent } from 'electron';
 import path from 'node:path';
+import { createAuthWindow } from './backend/auth/window';
 // import started from 'electron-squirrel-startup';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -25,7 +26,13 @@ const createWindow = () => {
   }
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools({ mode: "bottom" });
+
+  ipcMain.on('request-twitch-auth', (_event: IpcMainEvent) => {
+    if (mainWindow) {
+      createAuthWindow(mainWindow);
+    }
+  });
 };
 
 // This method will be called when Electron has finished
